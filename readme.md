@@ -38,3 +38,12 @@ Reemplazar nombre_db, nombre_usuario y contraseña con los valores correspondien
     - Iniciar la consola interactiva de Django: python manage.py shell
     - Importar los modelos: from nombre_app.models import NombreModelo
     - Verificar que los modelos están disponibles: NombreModelo.objects.all()
+
+## Crear un superusuario
+    - Crear un superusuario: python manage.py createsuperuser
+
+## Iniciar el servidor de desarrollo
+    - Iniciar el servidor de desarrollo: python manage.py runserver
+    - Ingresar al panel de administación: http://<localhost>/admin
+
+    
