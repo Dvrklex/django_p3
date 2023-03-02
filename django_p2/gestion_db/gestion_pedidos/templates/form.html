@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+<!-- Aca cambio el titulo por el nombre de la plantilla hija -->
+{% block title %} Formulario {% endblock %}
+
+<!-- Aca cambio el contenido -->
+{% block content %}
+    <section>
+        <form action="/busqueda/" method="GET">
+            <h1 class="titulo">Formulario de búsqueda</h1>
+            <input type="search" name='producto' placeholder="Search..." />
+            <input class="button" type="submit" value="Buscar" />
+        </form>
+    </section>
+
+{% endblock %}}
+    

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+<!-- Aca cambio el titulo por el nombre de la plantilla hija -->
+{% block title %} Resultado de busqueda {% endblock %}
+
+<!-- Aca cambio el contenido -->
+{% block content %}
+
+    
+    
+
+        {% if articulos|length == 0 %}
+            <h2 class="no-resultado">No se han encontraron resultados para <strong>"{{ query }}"</strong></h2>
+        {% else %}
+            <h2 class="si-resultados">Se han encontrado {{ articulos|length }} resultados para "{{ query }}":</h2>        
+                <ul>
+                    {% for articulo in articulos %}
+                        <li class="resultado">{{ articulo.nombre }} &nbsp; {{ articulo.precio }} &nbsp;{{ articulo.seccion }} </li>
+                    {% endfor %}
+                </ul>               
+        {% endif %}
+
+{% endblock %}}
