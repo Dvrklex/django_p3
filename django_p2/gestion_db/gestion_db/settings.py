@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'djangogestion',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': '7870047',
         'HOST': 'localhost',
         'PORT': '5433',
     }
@@ -108,6 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
+#Con esta instruccion se cambia el idioma
+# LANGUAGE_CODE = 'es-ar'
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
