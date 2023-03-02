@@ -13,7 +13,8 @@
 ## Configurar el archivo settings.py
     Añadir la siguiente configuración en el archivo settings.py del proyecto:
 
-`DATABASES = {
+```python
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'nombre_db',
@@ -22,7 +23,8 @@
         'HOST': 'localhost',
         'PORT': '',
     }
-}`
+}
+```
 
 Reemplazar nombre_db, nombre_usuario y contraseña con los valores correspondientes.
 
