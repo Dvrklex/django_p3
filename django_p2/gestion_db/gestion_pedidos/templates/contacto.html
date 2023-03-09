@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 <!-- Aca cambio el titulo por el nombre de la plantilla hija -->
-{% block head_content %}
+{% block head %}
   {{ block.super }}
-  <link type="text/css" href='{% static "css/" %}{{ css_file }}' rel="stylesheet" >
+  <link type="text/css" href='{% static "css/contacto.css" %}' rel="stylesheet" >
+
 {% endblock %}
 {% block title %} Contacto {% endblock %}
 
