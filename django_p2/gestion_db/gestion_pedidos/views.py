@@ -17,13 +17,22 @@ def busqueda(request):
         # resultado = 'Articulos buscados: %r' % request.GET['producto']
         producto =  request.GET['producto']
         
-        #Busca en la base de datos si el termino buscado se encuentra en el campo nombre
-        articulos = Articulos.objects.filter(nombre__icontains=producto)
+        if len(producto) > 20:
+            mensaje = 'Demasiado largo'
         
-        return render(request, "./busqueda.html", {"articulos": articulos, "query": producto})
+        else:
+            #Busca en la base de datos si el termino buscado se encuentra en el campo nombre
+            articulos = Articulos.objects.filter(nombre__icontains=producto)
+            
+            return render(request, "./busqueda.html", {"articulos": articulos, "query": producto})
     
     else:
         mensaje = 'Terminos de búsqueda invalidos'
     return HttpResponse(mensaje)
    
+   
+def contacto(request):
+    context = {'css_file':"./contacto.css"}
+    
+    return render(request, "./contacto.html", context)
     

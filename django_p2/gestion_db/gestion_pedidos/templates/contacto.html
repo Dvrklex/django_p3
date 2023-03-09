@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- Aca cambio el titulo por el nombre de la plantilla hija -->
+{% block head_content %}
+  {{ block.super }}
+  <link type="text/css" href='{% static "css/" %}{{ css_file }}' rel="stylesheet" >
+{% endblock %}
+{% block title %} Contacto {% endblock %}
+
+
+<!-- Aca cambio el contenido -->
+{% block content %}
+
+    <h1 class="pp">HGOALAAAA</h1>
+<section class="form-contact">
+    <header>
+      <span>
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+      </span>
+    </header>
+
+    <form action="" class="contact" method="POST">
+      <label for="nombres">Nombres</label>
+      <input type="text" name="nombres" id="nombres">
+
+      <label for="correo">Correo</label>
+      <input type="text" name="correo" id="correo">
+
+      <label for="nombres">Celular</label>
+      <input type="text" name="celular" id="celular">
+
+      <label for="mensaje">Mensaje</label>
+      <textarea name="mensaje" id="mensaje"></textarea>
+      <input type="submit" value="Enviar">
+
+
+    </form>
+  </section>
+
+
+{% endblock %}
