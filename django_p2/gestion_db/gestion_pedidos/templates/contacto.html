@@ -3,40 +3,44 @@
 <!-- Aca cambio el titulo por el nombre de la plantilla hija -->
 {% block head %}
   {{ block.super }}
-  <link type="text/css" href='{% static "css/contacto.css" %}' rel="stylesheet" >
+  <link type="text/css" href='{% static "contacto.css" %}' rel="stylesheet" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 
 {% endblock %}
+
 {% block title %} Contacto {% endblock %}
 
 
 <!-- Aca cambio el contenido -->
 {% block content %}
 
-    <h1 class="pp">HGOALAAAA</h1>
+   
 <section class="form-contact">
     <header>
+      
       <span>
-        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        <i class="fa fa-paper-plane" aria-hidden="true"><h2 class="title_form">Contactanos</h2></i>
       </span>
     </header>
 
-    <form action="" class="contact" method="POST">
-      <label for="nombres">Nombres</label>
-      <input type="text" name="nombres" id="nombres">
-
-      <label for="correo">Correo</label>
-      <input type="text" name="correo" id="correo">
-
-      <label for="nombres">Celular</label>
-      <input type="text" name="celular" id="celular">
-
-      <label for="mensaje">Mensaje</label>
-      <textarea name="mensaje" id="mensaje"></textarea>
-      <input type="submit" value="Enviar">
+    <form action="/contacto/" class="contact" method="POST">{% csrf_token %}
+      <p> Asunto: <input type="text" name="asunto"></p>
+      <p> Email: <input type="email" name="email"></p>
+      <p> Mensaje: <textarea name="mensaje" cols="15" rows="10"></textarea></p>
+      <p> <input type="submit" value="Enviar"></p>
 
 
     </form>
   </section>
+  {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+  
+{% endif %}
+
 
 
 {% endblock %}

@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+{% block head %}
+{{ block.super }}
+  <link type="text/css" href='{% static "search_bar.css" %}' rel="stylesheet" >
+{% endblock %}
 
 <!-- Aca cambio el titulo por el nombre de la plantilla hija -->
 {% block title %} Resultado de busqueda {% endblock %}

@@ -3,16 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
-.pp{
-  font-size: 50px;
-  font-family: 'Courier New', Courier, monospace;
-}
+
 
 body {
-  background: #a8e6cf;
+  background: #001f04;
   font-family: Arial, Helvetica, sans-serif;  
 }
 
+.title_form{
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
 .form-contact {
   background: #FFF;
   width: 400px;
@@ -25,7 +28,7 @@ body {
 
 header {
   width: 100%;
-  background: #ff165d;
+  background: #cc4b00;
   overflow: hidden;
   color: white;
 }
@@ -55,7 +58,7 @@ header span {
 
 .contact input:not([type='submit']), .contact textarea {
   border: none;
-  border-bottom: 2px solid #ff165d;
+  border-bottom: 2px solid #cc4b00;
   margin-bottom: 10px;
   font-size: 20px;
   outline: none;
@@ -68,7 +71,7 @@ header span {
 
 input[type='submit'] {
   padding: 10px;
-  background: #ff165d;
+  background: #cc4b00;
   border: none;
   color: white;
   font-size: 20px;
@@ -76,3 +79,25 @@ input[type='submit'] {
   cursor: pointer;
 
 }
+
+
+/* flash */
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+/* .alert-warning {
+  color: #f32b2b;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+} */

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import smtplib
 from pathlib import Path
 import os 
 
@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'djangogestion',
         'USER': 'postgres',
-        'PASSWORD': '7870047',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5433',
     }
@@ -125,11 +125,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    BASE_DIR / "static/css",
+    './gestion_pedidos/static/css/'
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Parametros para enviar email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '<example>@gmail.com'
+EMAIL_HOST_PASSWORD = ''    
+
+#  
+ 
