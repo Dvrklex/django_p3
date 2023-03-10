@@ -6,7 +6,7 @@ from django.template import Template, Context
 from django.shortcuts import render, redirect
 from django.template.loader import get_template
 from gestion_pedidos.models import Articulos
-
+from gestion_pedidos.forms import FormularioContacto
 # Create your views here.
 
 def formulario_busqueda(request):
@@ -36,18 +36,36 @@ def busqueda(request):
    
    
 def contacto(request):
-    context = {'css_file':"./contacto.css"}
+    context = {'css_file':"./contacto.css"} #Estilos para la pagina de contacto
+    #Prueba utilizando formulario de Api Forms
+    if request.method == 'POST':
+        miFormulario = FormularioContacto(request.POST)
+
+        if miFormulario.is_valid():
+            #Guardo la informacion del formulario en un diccionario
+            info_formulario = miFormulario.cleaned_data
+            send_mail(info_formulario['asunto'], 
+                      info_formulario['mensaje'], 
+                      info_formulario.get('email', ''), #<varaiable>.get(<clave>, <email_configurado_settings.py>)
+                      ['ejemplo@gmail.com']
+                      ) #Envia el correo
+            messages.success(request, '¡Mensaje enviado con éxito!')
+    else:
+        miFormulario = FormularioContacto()
     
-    if request.method == "POST":
-        subject = request.POST['asunto']
-        message = request.POST['mensaje'] + " " + request.POST['email']
-        email_from = settings.EMAIL_HOST_USER
-        recipiente_list = ['jackotes12@gmail.com']
+    return render(request,'formulario_contacto_apiform.html', {'form': miFormulario})
+    
+    #Primera prueba de envio de correo 
+    # if request.method == "POST":
+    #     subject = request.POST['asunto']
+    #     message = request.POST['mensaje'] + " " + request.POST['email']
+    #     email_from = settings.EMAIL_HOST_USER
+    #     recipiente_list = ['ejemplo@gmail.com']
         
-        send_mail(subject, message, email_from, recipiente_list)
+    #     send_mail(subject, message, email_from, recipiente_list)
         
-        messages.success(request, '¡Mensaje enviado con éxito!')
-    # else:
-    #     messages.warning(request, 'Por favor completa el formulario antes de enviarlo.')
-    return render(request, "./contacto.html", context)
+    #     messages.success(request, '¡Mensaje enviado con éxito!')
+    # # else:
+    # #     messages.warning(request, 'Por favor completa el formulario antes de enviarlo.')
+    # return render(request, "./contacto.html", context)
     

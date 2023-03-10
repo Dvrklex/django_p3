@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Formulario de contacto</title>
+    </head>
+    <body>
+
+        <h1>Formulario de contacto con Api Forms</h1>
+
+        {% if form.errors %}
+            <p style="color:red">Por favor, corrige los errores.</p>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %} <!-- Creacion del token -->
+            <table>
+                {{ form.as_table }} <!-- Creacion del formulario con la libreria ApiForms -->
+                <input type="submit" value="Enviar">
+            </table>
+
+    </body>
+
+
+</html>
